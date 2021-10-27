@@ -3,7 +3,8 @@ const axios = require("axios");
 const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3030;
-const redirect_uri = "http://localhost:3030";
+// const redirect_uri = "http://localhost:3030"; // Localhost
+const redirect_uri = "https://jammming-deezer.herokuapp.com/";
 const app_id = "510062";
 const secret = "3f0f5f23e69a31d45b5223eea9a6a7a4";
 
