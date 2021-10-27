@@ -5,6 +5,8 @@ const app = express();
 const port = process.env.PORT || 3030;
 // const redirect_uri = "http://localhost:3030"; // Localhost
 const redirect_uri = "https://jammming-deezer.herokuapp.com/";
+// const client_uri = "http://localhost:3000" // Localhost
+const client_uri = "https://silly-perlman-b4de38.netlify.app";
 const app_id = "510062";
 const secret = "3f0f5f23e69a31d45b5223eea9a6a7a4";
 
@@ -19,7 +21,7 @@ app.get("/", (req, res) => {
     .then((response) => {
       let token = response.data.match(/access_token=([^&]*)/);
       console.log(response.data);
-      res.redirect("http://localhost:3000?token=" + token[1]);
+      res.redirect(`${client_uri}?token=` + token[1]);
     })
     .catch((error) => res.send(error));
 });
@@ -83,5 +85,5 @@ app.get("/createplaylist", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Example app listening port ${port}`);
 });
